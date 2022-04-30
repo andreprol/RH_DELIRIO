@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class EnderecoLojas
+    public class EnderecoLojas : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         //utilizar o ajax para preenchimento do CEP
 

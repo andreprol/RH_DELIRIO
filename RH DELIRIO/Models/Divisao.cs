@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Divisao
+    public class Divisao : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [Display(Name = "Nº da Divisão")]
         public int numero_divisao { get; set; }
@@ -18,10 +16,7 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Descrição da Divisão")]
         public string descricao { get; set; }
 
-        public Divisao()
-        {
-            Id = Guid.NewGuid();
-        }
+        
         public Divisao(int numero, string desc)
         {
             int numero_divisao = numero;

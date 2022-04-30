@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Salarios
+    public class Salarios : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [Display(Name = "Cargo original - descrição")]
         public string cargo_original { get; set; }
@@ -28,10 +27,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de modificação de salário")]
         public DateTime data_modificao { get; set; }
 
-        public Salarios()
-        {
-            Id = Guid.NewGuid();
-        }
         public Salarios(string c_original, string c_atual,int s_original, int s_atual, DateTime data)
         {
             string cargo_original = c_original;

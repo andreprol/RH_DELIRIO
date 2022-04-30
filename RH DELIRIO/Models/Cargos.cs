@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Cargos
+    public class Cargos : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Abreviação")]
@@ -25,10 +23,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Dias de prorrogação")]
         public int diasprorr { get; set; }
 
-        public Cargos()
-        {
-            Id = Guid.NewGuid();
-        }
         public Cargos(string abv, string desc, int exp, int prorr)
         {
             string abreviacao = abv;

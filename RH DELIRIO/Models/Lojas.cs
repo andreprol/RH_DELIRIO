@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Lojas
+    public class Lojas : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage = "A descrição da instrução é obrigatória")]
@@ -35,9 +34,8 @@ namespace RH_DELIRIO.Models
 
         public EnderecoLojas endereco_lojas { get; set; }
 
-        public Lojas()
-        {
-            Id = Guid.NewGuid();
-        }
+        //Relacão do EF
+        public IEnumerable <EnderecoLojas> EnderecoLojas { get; set; }
+
     }
 }

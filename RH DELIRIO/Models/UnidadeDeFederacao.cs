@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class UnidadeDeFederacao
+    public class UnidadeDeFederacao : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage ="O campo Estado é obrigatório")]
@@ -20,10 +18,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Sigla do Estado")]
         public string sigla { get; set; }
 
-        public UnidadeDeFederacao()
-        {
-            Id = Guid.NewGuid();
-        }
         public UnidadeDeFederacao(string est, string s)
         {
             string estado = est;

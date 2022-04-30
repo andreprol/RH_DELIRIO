@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class HorariosOriginais
+    public class HorariosOriginais : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Display(Name = "Data de entrada - abertura")]
@@ -35,10 +34,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de saída - noite")]
         public DateTime data_saida_noite { get; set; }
 
-        public HorariosOriginais()
-        {
-            Id = Guid.NewGuid();
-        }
         public HorariosOriginais(DateTime entrada_abertura, DateTime saida_abertura, DateTime entrada_inter, 
             DateTime saida_inter, DateTime entrada_noite, DateTime saida_noite)
         {

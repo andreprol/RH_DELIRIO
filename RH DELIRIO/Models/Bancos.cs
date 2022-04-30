@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Bancos
+    public class Bancos : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
-
+       
         public string numero_banco { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
@@ -20,10 +18,6 @@ namespace RH_DELIRIO.Models
 
         public string  conta_banco { get; set; }
 
-        public Bancos()
-        {
-            Id = Guid.NewGuid();
-        }
 
         public Bancos(string numero, string descricao, string agencia, string conta)
         {

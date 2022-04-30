@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using KissLog;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RH_DELIRIO.Models;
@@ -14,21 +15,26 @@ namespace RH_DELIRIO.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
+        private readonly IKLogger _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            //_logger = logger;
+
+            _logger = Logger.Factory.Get();
         }
 
         
         public IActionResult Index()
         {
+            _logger.Debug("Realizando log do Index");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            _logger.Debug("Realizando log do Privacy");
             return View();
         }
 

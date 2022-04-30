@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Instrucao
+    public class Instrucao : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage = "A descrição é obrigatória")]
         [Display(Name = "Descrição da instrução")]
         public string descricao { get; set; }
 
-        public Instrucao()
-        {
-            Id = Guid.NewGuid();
-        }
         public Instrucao(string desc)
         {
             string descricao = desc;

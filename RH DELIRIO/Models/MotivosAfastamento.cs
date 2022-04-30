@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class MotivosAfastamento
+    public class MotivosAfastamento : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage = "A descrição é obrigatória")]
@@ -21,10 +19,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data do afastamento")]
         public DateTime data_afastamento { get; set; }
 
-        public MotivosAfastamento()
-        {
-            Id = Guid.NewGuid();
-        }
         public MotivosAfastamento(string desc, DateTime data)
         {
             string descricao = desc;

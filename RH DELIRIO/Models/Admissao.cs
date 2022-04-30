@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Admissao
+    public class Admissao : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage ="Formato inválido")]
         public string tipo { get; set; }
@@ -18,11 +16,6 @@ namespace RH_DELIRIO.Models
         [Required(ErrorMessage ="A data de admissão é obrigatória")]
         [Display(Name ="Data de admissão")]
         public DateTime data_admissao { get; set; }
-
-        public Admissao()
-        {
-            Id = Guid.NewGuid();
-        }
 
         public Admissao(string tipo_ad, DateTime data_admissao_ad)
         {

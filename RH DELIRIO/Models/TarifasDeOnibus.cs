@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class TarifasDeOnibus
+    public class TarifasDeOnibus : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
-
+        
         [Display(Name = "Tarifa original")]
         public int tarifa_original { get; set; }
 
@@ -26,10 +24,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de modificação da tarifa")]
         public DateTime data_modificacao { get; set; }
 
-        public TarifasDeOnibus()
-        {
-            Id = Guid.NewGuid();
-        }
         public TarifasDeOnibus(int original, int atual, string tipo_passagem, DateTime data)
         {
             int tarifa_original = original;

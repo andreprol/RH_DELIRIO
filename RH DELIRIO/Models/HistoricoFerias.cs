@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class HistoricoFerias
+    public class HistoricoFerias : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Required(ErrorMessage = "A data de início é obrigatória")]
@@ -40,10 +39,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Valor vendido")]
         public int valorvendido { get; set; }
 
-        public HistoricoFerias()
-        {
-            Id = Guid.NewGuid();
-        }
         public HistoricoFerias(DateTime dinicio, DateTime dfim, DateTime dgozo, int valor, int abono, int diasg, int diasv, int valorv)
         {
             DateTime datainicio = dinicio;

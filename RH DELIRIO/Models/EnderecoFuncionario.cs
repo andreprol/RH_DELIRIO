@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class EnderecoFuncionario
+    public class EnderecoFuncionario : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         //utilizar o ajax para preenchimento do CEP
 
@@ -37,10 +35,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Telefone")]
         public string telefone { get; set; }
 
-        public EnderecoFuncionario()
-        {
-            Id = Guid.NewGuid();
-        }
 
         public EnderecoFuncionario(string rua_func, int num, string comp, string bairro_func, string cid, UnidadeDeFederacao uf, string tel)
         {

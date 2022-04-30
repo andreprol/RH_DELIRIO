@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class HistoricoFuncionario
+    public class HistoricoFuncionario : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Required(ErrorMessage = "A data é obrigatória")]
@@ -20,10 +19,6 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Descrição da ocorrência")]
         public string descricao { get; set; }
 
-        public HistoricoFuncionario()
-        {
-            Id = Guid.NewGuid();
-        }
 
         public HistoricoFuncionario(DateTime data_his, string descricao_ocorrencia)
         {

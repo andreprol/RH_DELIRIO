@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Funcionario
+    public class Funcionario : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
-
-        public enum ativo { nao, sim }
-
         public Lojas loja_original { get; set; }
 
         public Lojas loja_anterior { get; set; }
@@ -88,13 +83,9 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de saída")]
         public DateTime saida { get; set; }
 
-        public enum Sexo { masculino, feminino }
-
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Naturalidade")]
         public string naturalidade { get; set; }
-
-        public enum nacionalidade { brasileiro, estrangeiro }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Display(Name = "Data de nascimento")]
@@ -105,8 +96,6 @@ namespace RH_DELIRIO.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Cidade de nascimento")]
         public string cidade_nascimento { get; set; }
-
-        public EstadoCivil estado_civil { get; set; }
 
         public Familiares familiares { get; set; }
 
@@ -147,9 +136,17 @@ namespace RH_DELIRIO.Models
 
         public PlanoDeSaude plano_saude { get; set; }
 
-        public enum treinamento { nao, sim }
+        public TipoEstadoCivil TipoEstadoCivil { get; set; }
 
-        public enum gerencial { nao, sim }
+        public TipoGerencial TipoGerencial { get; set; }
+
+        public TipoNacionalidade TipoNacionalidade { get; set; }
+
+        public TipoSexo TipoSexo { get; set; }
+
+        public TipoFuncionario TipoFuncionario { get; set; }
+
+        public bool ativo { get; set; }
 
         public HorariosOriginais horarios_originais { get; set; }
 
@@ -163,11 +160,19 @@ namespace RH_DELIRIO.Models
 
         public MotivosAfastamento motivos_afastamento { get; set; }
 
+        //Relações do EF
+        public IEnumerable <Bancos> Bancos { get; set; }
 
-        public Funcionario()
-        {
-            Id = Guid.NewGuid();
-        }
+        public IEnumerable<EnderecoFuncionario> EnderecoFuncionario { get; set; }
 
+        public IEnumerable<Familiares> Familiares { get; set; }
+
+        public IEnumerable<HistoricoFerias> HistoricoFerias { get; set; }
+
+        public IEnumerable<HistoricoFuncionario> HistoricoFuncionario { get; set; }
+
+        public IEnumerable<HistoricoSalario> HistoricoSalario { get; set; }
+
+       
     }
 }

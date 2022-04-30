@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class HistoricoSalario
+    public class HistoricoSalario : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Display(Name = "Data de modificação de Salário")]
@@ -22,11 +21,7 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Salário Atual")]
         public int salario_atual { get; set; }
 
-        public HistoricoSalario()
-        {
-            Id = Guid.NewGuid();
-        }
-
+       
         public HistoricoSalario(DateTime mod_salario, int inicial, int atual)
         {
             DateTime data_mod_salario = mod_salario;

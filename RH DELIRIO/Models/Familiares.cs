@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Familiares
+    public class Familiares : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Nome do pai")]
@@ -27,10 +25,7 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de nascimento do filho(a)")]
         public DateTime nasc_filho { get; set; }
 
-        public Familiares()
-        {
-            Id = Guid.NewGuid();
-        }
+        
         public Familiares(string pai, string mae, string filho)
         {
             string nome_pai = pai;

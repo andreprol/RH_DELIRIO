@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace RH_DELIRIO.Models
 {
-    public class Eventos
-    {
-        [Key]
-        public Guid Id { get; set; }
+    public class Eventos : Entity
+    { 
 
         [Display(Name = "Nº Evento")]
         public int numero_evento { get; set; }
@@ -20,11 +18,6 @@ namespace RH_DELIRIO.Models
 
         [Display(Name = "Data do evento")]
         public DateTime data_evento { get; set; }
-
-        public Eventos()
-        {
-            Id = Guid.NewGuid();
-        }
 
         public Eventos(string descricao, DateTime data)
         {
