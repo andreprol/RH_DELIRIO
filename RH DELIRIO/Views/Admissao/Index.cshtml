@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RH_DELIRIO.Models.Funcionario>
+﻿@model IEnumerable<RH_DELIRIO.Models.Admissao>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,23 +9,18 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<p>
-    <input type ="search" id="inputbusca" /> 
-    <button type ="button" asp-action="Details" asp-route-id="@Model.Id">Busca</button>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.idfuncionario)
+                @Html.DisplayNameFor(model => model.tipo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.data_admissao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nome_guerra)
+                @Html.DisplayNameFor(model => model.funcionario)
             </th>
-            
             <th></th>
         </tr>
     </thead>
@@ -33,15 +28,14 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CargosId)
+                @Html.DisplayFor(modelItem => item.tipo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
+                @Html.DisplayFor(modelItem => item.data_admissao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome_guerra)
+                @Html.DisplayFor(modelItem => item.funcionario.Nome)
             </td>
-            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

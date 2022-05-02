@@ -13,9 +13,19 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="descricao" class="control-label"></label>
-                <input asp-for="descricao" class="form-control" />
-                <span asp-validation-for="descricao" class="text-danger"></span>
+                <label asp-for="descricaoAtual" class="control-label"></label>
+                <input asp-for="descricaoAtual" class="form-control" />
+                <span asp-validation-for="descricaoAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricaoAnterior" class="control-label"></label>
+                <input asp-for="descricaoAnterior" class="form-control" />
+                <span asp-validation-for="descricaoAnterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricaoOriginal" class="control-label"></label>
+                <input asp-for="descricaoOriginal" class="form-control" />
+                <span asp-validation-for="descricaoOriginal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="sigla" class="control-label"></label>

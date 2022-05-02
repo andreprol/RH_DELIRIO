@@ -9,45 +9,51 @@ namespace RH_DELIRIO.Models
     public class EnderecoLojas : Entity
     {
 
-        //utilizar o ajax para preenchimento do CEP
+        public Guid UnidadeDeFederacaoId { get; set; }
+        public Guid LojasId { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [Display(Name = "CEP")]
+        [StringLength(8, ErrorMessage = "O campo {0} precisa ter {1} caracteres", MinimumLength = 8)]
+        public string cep { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Rua")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string rua { get; set; }
 
         [Display(Name = "Nº")]
-        public int numero { get; set; }
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
+        public string numero { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Complemento")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string complemento { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Bairro")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string bairro { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Cidade")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string cidade { get; set; }
 
         [Display(Name = "Telefone")]
         public string telefone { get; set; }
 
-        public EnderecoLojas()
-        {
-            Id = Guid.NewGuid();
-        }
 
-        public EnderecoLojas(string rua_loja, int num, string comp, string bairro_loja, string cid, string tel)
-        {
-            string rua = rua_loja;
-            int numero = num;
-            string complemento = comp;
-            string bairro = bairro_loja;
-            string cidade = cid;
-            string telefone = tel;
+       
+        //Relação do EF
 
-        }
+        public Lojas lojas { get; set; }
+
+        public UnidadeDeFederacao UnidadeDeFederacao { get; set; }
     }
 }
     

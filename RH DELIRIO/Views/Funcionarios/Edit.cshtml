@@ -12,7 +12,16 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="LojasId" class="control-label"></label>
+                <select asp-for="LojasId" class="form-control" asp-items="ViewBag.LojasId"></select>
+                <span asp-validation-for="LojasId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargosId" class="control-label"></label>
+                <input asp-for="CargosId" class="form-control" />
+                <span asp-validation-for="CargosId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -138,6 +147,42 @@
                 <input asp-for="observacoes" class="form-control" />
                 <span asp-validation-for="observacoes" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="foto" class="control-label"></label>
+                <input asp-for="foto" class="form-control" />
+                <span asp-validation-for="foto" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ativo" /> @Html.DisplayNameFor(model => model.ativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEstadoCivil" class="control-label"></label>
+                <select asp-for="TipoEstadoCivil" class="form-control"></select>
+                <span asp-validation-for="TipoEstadoCivil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoGerencial" class="control-label"></label>
+                <select asp-for="TipoGerencial" class="form-control"></select>
+                <span asp-validation-for="TipoGerencial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoNacionalidade" class="control-label"></label>
+                <select asp-for="TipoNacionalidade" class="form-control"></select>
+                <span asp-validation-for="TipoNacionalidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoSexo" class="control-label"></label>
+                <select asp-for="TipoSexo" class="form-control"></select>
+                <span asp-validation-for="TipoSexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoFuncionario" class="control-label"></label>
+                <select asp-for="TipoFuncionario" class="form-control"></select>
+                <span asp-validation-for="TipoFuncionario" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

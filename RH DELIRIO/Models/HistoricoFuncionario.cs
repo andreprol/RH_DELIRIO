@@ -8,7 +8,8 @@ namespace RH_DELIRIO.Models
 {
     public class HistoricoFuncionario : Entity
     {
-        
+        public Guid FuncionarioId { get; set; }
+
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Required(ErrorMessage = "A data é obrigatória")]
@@ -17,13 +18,14 @@ namespace RH_DELIRIO.Models
 
         [Required(ErrorMessage = "É necessário descrever o ocorrido")]
         [Display(Name = "Descrição da ocorrência")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string descricao { get; set; }
 
 
-        public HistoricoFuncionario(DateTime data_his, string descricao_ocorrencia)
-        {
-            DateTime data = data_his;
-            string descricao = descricao_ocorrencia;
-        }
+        
+
+        //Relação do EF
+
+        public Funcionario funcionario { get; set; }
     }
 }

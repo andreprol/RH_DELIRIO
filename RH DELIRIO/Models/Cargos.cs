@@ -8,13 +8,17 @@ namespace RH_DELIRIO.Models
 {
     public class Cargos : Entity
     {
+        public Guid FuncionarioId { get; set; }
+
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Abreviação")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string abreviacao { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Display(Name = "Descrição do Cargo")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string descricao { get; set; }
 
         [Display(Name = "Dias de experiência")]
@@ -23,12 +27,10 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Dias de prorrogação")]
         public int diasprorr { get; set; }
 
-        public Cargos(string abv, string desc, int exp, int prorr)
-        {
-            string abreviacao = abv;
-            string descricao = desc;
-            int diasexp = exp;
-            int diasprorr = prorr;
-        }
+        //Relação do EF
+
+       
+
+
     }
 }

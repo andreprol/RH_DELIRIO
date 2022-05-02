@@ -12,11 +12,20 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="descricao" class="control-label"></label>
-                <input asp-for="descricao" class="form-control" />
-                <span asp-validation-for="descricao" class="text-danger"></span>
+                <label asp-for="descricaoAtual" class="control-label"></label>
+                <input asp-for="descricaoAtual" class="form-control" />
+                <span asp-validation-for="descricaoAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricaoAnterior" class="control-label"></label>
+                <input asp-for="descricaoAnterior" class="form-control" />
+                <span asp-validation-for="descricaoAnterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricaoOriginal" class="control-label"></label>
+                <input asp-for="descricaoOriginal" class="form-control" />
+                <span asp-validation-for="descricaoOriginal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="sigla" class="control-label"></label>
@@ -43,6 +52,7 @@
                 <input asp-for="cod_amil" class="form-control" />
                 <span asp-validation-for="cod_amil" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

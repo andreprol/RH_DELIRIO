@@ -13,28 +13,50 @@ namespace RH_DELIRIO.Data
             : base(options)
         {
         }
-        public DbSet<RH_DELIRIO.Models.Admissao> Admissao { get; set; }
-        public DbSet<RH_DELIRIO.Models.Bancos> Bancos { get; set; }
-        public DbSet<RH_DELIRIO.Models.Cargos> Cargos { get; set; }
-        public DbSet<RH_DELIRIO.Models.Divisao> Divisao { get; set; }
-        public DbSet<RH_DELIRIO.Models.EnderecoFuncionario> EnderecoFuncionario { get; set; }
-        public DbSet<RH_DELIRIO.Models.EnderecoLojas> EnderecoLojas { get; set; }
-        public DbSet<RH_DELIRIO.Models.EstadoCivil> EstadoCivil { get; set; }
-        public DbSet<RH_DELIRIO.Models.Eventos> Eventos { get; set; }
-        public DbSet<RH_DELIRIO.Models.Familiares> Familiares { get; set; }
-        public DbSet<RH_DELIRIO.Models.Funcionario> Funcionario { get; set; }
-        public DbSet<RH_DELIRIO.Models.HistoricoFerias> HistoricoFerias { get; set; }
-        public DbSet<RH_DELIRIO.Models.HistoricoFuncionario> HistoricoFuncionario { get; set; }
-        public DbSet<RH_DELIRIO.Models.HistoricoSalario> HistoricoSalario { get; set; }
-        public DbSet<RH_DELIRIO.Models.HorariosAtuais> HorariosAtuais { get; set; }
-        public DbSet<RH_DELIRIO.Models.HorariosOriginais> HorariosOriginais { get; set; }
-        public DbSet<RH_DELIRIO.Models.Instrucao> Instrucao { get; set; }
-        public DbSet<RH_DELIRIO.Models.Lojas> Lojas { get; set; }
-        public DbSet<RH_DELIRIO.Models.MotivosAfastamento> MotivosAfastamento { get; set; }
-        public DbSet<RH_DELIRIO.Models.PlanoDeSaude> PlanoDeSaude { get; set; }
-        public DbSet<RH_DELIRIO.Models.Salarios> Salarios { get; set; }
-        public DbSet<RH_DELIRIO.Models.TarifasDeOnibus> TarifasDeOnibus { get; set; }
+
+        public DbSet<Admissao> Admissoes { get; set; }
+
+        public DbSet<Bancos> Bancos { get; set; }
+
+        public DbSet<Cargos> Cargos { get; set; }
+
+        public DbSet<Divisao> Divisoes { get; set; }
+
+        public DbSet<EnderecoFuncionario> EnderecosFuncionarios { get; set; }
+
+        public DbSet<EnderecoLojas> EnderecosLojas { get; set; }
+
+        public DbSet<Eventos> Eventos { get; set; }
+
+        public DbSet<Familiares> Familiares { get; set; }
+
+        public DbSet<Funcionario> Funcionarios { get; set; }
+
+        public DbSet<HistoricoFerias> HistoricosFerias { get; set; }
+
+        public DbSet<HistoricoFuncionario> HistoricosFuncionarios { get; set; }
+
+        public DbSet<HistoricoSalario> HistoricosSalarios { get; set; }
+
+        public DbSet<HorariosAtuais> HorariosAtuais { get; set; }
+
+        public DbSet<HorariosOriginais> HorariosOriginais { get; set; }
+
+        public DbSet<Instrucao> Instrucoes { get; set; }
+
+        public DbSet<Lojas> Lojas { get; set; }
+
+        public DbSet<MotivosAfastamento> MotivosAfastamentos { get; set; }
+
+        public DbSet<PlanoDeSaude> PlanosDeSaude { get; set; }
+
+        public DbSet<Salarios> Salarios { get; set; }
+
+        public DbSet<TarifasDeOnibus> TarifasDeOnibus { get; set; }
+
         public DbSet<RH_DELIRIO.Models.UnidadeDeFederacao> UnidadeDeFederacao { get; set; }
-        
+
+
+
     }
 }

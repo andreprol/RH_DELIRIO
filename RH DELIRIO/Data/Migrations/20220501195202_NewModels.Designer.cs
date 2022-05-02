@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RH_DELIRIO.Data;
 
 namespace RH_DELIRIO.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220501195202_NewModels")]
+    partial class NewModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -370,8 +372,7 @@ namespace RH_DELIRIO.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FuncionarioId")
-                        .IsUnique();
+                    b.HasIndex("FuncionarioId");
 
                     b.HasIndex("UnidadeDeFederacaoId");
 
@@ -563,9 +564,6 @@ namespace RH_DELIRIO.Data.Migrations
 
                     b.Property<string>("foto")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("idfuncionario")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("nascimento")
                         .HasColumnType("datetime2");
@@ -1078,8 +1076,8 @@ namespace RH_DELIRIO.Data.Migrations
             modelBuilder.Entity("RH_DELIRIO.Models.EnderecoFuncionario", b =>
                 {
                     b.HasOne("RH_DELIRIO.Models.Funcionario", "funcionario")
-                        .WithOne("EnderecoFuncionario")
-                        .HasForeignKey("RH_DELIRIO.Models.EnderecoFuncionario", "FuncionarioId")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1269,8 +1267,6 @@ namespace RH_DELIRIO.Data.Migrations
             modelBuilder.Entity("RH_DELIRIO.Models.Funcionario", b =>
                 {
                     b.Navigation("Bancos");
-
-                    b.Navigation("EnderecoFuncionario");
 
                     b.Navigation("Familiares");
 

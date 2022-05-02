@@ -13,6 +13,11 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="idfuncionario" class="control-label"></label>
+                <input asp-for="idfuncionario" class="form-control" />
+                <span asp-validation-for="idfuncionario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
@@ -137,6 +142,54 @@
                 <input asp-for="observacoes" class="form-control" />
                 <span asp-validation-for="observacoes" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="foto" class="control-label"></label>
+                <input asp-for="foto" class="form-control" />
+                <span asp-validation-for="foto" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ativo" /> @Html.DisplayNameFor(model => model.ativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoEstadoCivil" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoEstadoCivil" checked /> Solteiro <br />
+                <input type="radio" value="2" asp-for="TipoEstadoCivil" /> Casado <br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoGerencial" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoGerencial" checked /> Sim <br />
+                <input type="radio" value="2" asp-for="TipoGerencial" checked /> Não <br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoNacionalidade" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoNacionalidade" checked /> Brasileiro <br />
+                <input type="radio" value="2" asp-for="TipoNacionalidade" /> Estrangeiro <br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoSexo" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoSexo" checked /> Masculino <br />
+                <input type="radio" value="2" asp-for="TipoSexo" /> Feminino <br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoFuncionario" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoFuncionario" checked /> Pessoa Física <br />
+                <input type="radio" value="2" asp-for="TipoFuncionario" /> Pessoa Jurídica <br />
+            </div>
+
+            <div>
+                <hr />
+                <h4>Endereço</h4>
+                <partial name="C_Endereco" />
+            </div>
+            <div>
+                <hr />
+                <h4>Admissão</h4>
+                <partial name="C_Admissao" />
+            </div>
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

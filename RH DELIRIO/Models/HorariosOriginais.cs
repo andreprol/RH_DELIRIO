@@ -8,7 +8,8 @@ namespace RH_DELIRIO.Models
 {
     public class HorariosOriginais : Entity
     {
-        
+        public Guid FuncionarioId { get; set; }
+
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Display(Name = "Data de entrada - abertura")]
@@ -34,16 +35,9 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de saída - noite")]
         public DateTime data_saida_noite { get; set; }
 
-        public HorariosOriginais(DateTime entrada_abertura, DateTime saida_abertura, DateTime entrada_inter, 
-            DateTime saida_inter, DateTime entrada_noite, DateTime saida_noite)
-        {
-            DateTime data_entrada_abertura = entrada_abertura;
-            DateTime data_saida_abertura = saida_abertura;
-            DateTime data_entrada_inter = entrada_inter;
-            DateTime data_saida_inter = saida_inter;
-            DateTime data_entrada_noite = entrada_noite;
-            DateTime data_saida_noite = saida_noite;
+        
+        //Relação do EF
 
-        }
+        public Funcionario funcionario { get; set; }
     }
 }

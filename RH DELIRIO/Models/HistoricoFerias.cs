@@ -8,7 +8,7 @@ namespace RH_DELIRIO.Models
 {
     public class HistoricoFerias : Entity
     {
-        
+        public Guid FuncionarioId { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Required(ErrorMessage = "A data de início é obrigatória")]
@@ -39,16 +39,9 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Valor vendido")]
         public int valorvendido { get; set; }
 
-        public HistoricoFerias(DateTime dinicio, DateTime dfim, DateTime dgozo, int valor, int abono, int diasg, int diasv, int valorv)
-        {
-            DateTime datainicio = dinicio;
-            DateTime datafim = dfim;
-            DateTime datagozo = dgozo;
-            int valorferias = valor;
-            int abonoferias = abono;
-            int diasgozo = diasg;
-            int diasvendidos = diasv;
-            int valorvendido = valorv;
-        }
+        
+        //Relação do EF
+
+        public Funcionario funcionario { get; set; }
     }
 }

@@ -8,10 +8,12 @@ namespace RH_DELIRIO.Models
 {
     public class MotivosAfastamento : Entity
     {
+        public Guid FuncionarioId { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage = "A descrição é obrigatória")]
         [Display(Name = "Motivo do afastamento - descrição")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string descricao { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
@@ -19,10 +21,9 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data do afastamento")]
         public DateTime data_afastamento { get; set; }
 
-        public MotivosAfastamento(string desc, DateTime data)
-        {
-            string descricao = desc;
-            DateTime data_afastamento = data;
-        }
+       
+        //Relação do EF
+
+        public Funcionario funcionario { get; set; }
     }
 }

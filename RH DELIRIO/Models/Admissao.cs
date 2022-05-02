@@ -8,8 +8,10 @@ namespace RH_DELIRIO.Models
 {
     public class Admissao : Entity
     {
+        public Guid FuncionarioId { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage ="Formato inválido")]
+        [StringLength(200, ErrorMessage ="O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string tipo { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage ="Data em formato incorreto")]
@@ -17,11 +19,10 @@ namespace RH_DELIRIO.Models
         [Display(Name ="Data de admissão")]
         public DateTime data_admissao { get; set; }
 
-        public Admissao(string tipo_ad, DateTime data_admissao_ad)
-        {
-            tipo = tipo_ad;
-            data_admissao = data_admissao_ad;
+        
 
-        }
+        //Relação do EF
+
+        public Funcionario funcionario { get; set; }
     }
 }

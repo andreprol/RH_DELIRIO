@@ -12,16 +12,17 @@ namespace RH_DELIRIO.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage ="O campo Estado é obrigatório")]
         [Display(Name = "Estado")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string estado { get; set; }
 
         [Required(ErrorMessage = "O campo Sigla é obrigatório")]
         [Display(Name = "Sigla do Estado")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string sigla { get; set; }
 
-        public UnidadeDeFederacao(string est, string s)
-        {
-            string estado = est;
-            string sigla = s;
-        }
+
+        //Relações do EF
+        public IEnumerable<Funcionario> Funcionario { get; set; }
+
     }
 }

@@ -8,7 +8,8 @@ namespace RH_DELIRIO.Models
 {
     public class HistoricoSalario : Entity
     {
-        
+        public Guid FuncionarioId { get; set; }
+
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
         [Display(Name = "Data de modificação de Salário")]
@@ -22,11 +23,10 @@ namespace RH_DELIRIO.Models
         public int salario_atual { get; set; }
 
        
-        public HistoricoSalario(DateTime mod_salario, int inicial, int atual)
-        {
-            DateTime data_mod_salario = mod_salario;
-            int salario_inicial = inicial;
-            int salario_atual = atual;
-        }
+        
+
+        //Relação do EF
+
+        public Funcionario funcionario { get; set; }
     }
 }
