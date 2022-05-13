@@ -8,6 +8,7 @@ namespace RH_DELIRIO.Models
 {
     public class UnidadeDeFederacao : Entity
     {
+        public Guid FuncionarioId { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
         [Required(ErrorMessage ="O campo Estado é obrigatório")]
@@ -22,7 +23,7 @@ namespace RH_DELIRIO.Models
 
 
         //Relações do EF
-        public IEnumerable<Funcionario> Funcionario { get; set; }
+        public Funcionario funcionario { get; set; }
 
     }
 }

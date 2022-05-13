@@ -8,24 +8,24 @@ using Microsoft.EntityFrameworkCore;
 using RH_DELIRIO.Data;
 using RH_DELIRIO.Models;
 
-namespace RH_DELIRIO.Controllers
+namespace RH_DELIRIO
 {
-    public class UnidadeDeFederacaosController : Controller
+    public class FuncionariosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UnidadeDeFederacaosController(ApplicationDbContext context)
+        public FuncionariosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: UnidadeDeFederacaos
+        // GET: Funcionarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UnidadeDeFederacao.ToListAsync());
+            return View(await _context.Funcionarios.ToListAsync());
         }
 
-        // GET: UnidadeDeFederacaos/Details/5
+        // GET: Funcionarios/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -33,40 +33,40 @@ namespace RH_DELIRIO.Controllers
                 return NotFound();
             }
 
-            var unidadeDeFederacao = await _context.UnidadeDeFederacao
+            var funcionario = await _context.Funcionarios
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (unidadeDeFederacao == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return View(unidadeDeFederacao);
+            return View(funcionario);
         }
 
-        // GET: UnidadeDeFederacaos/Create
+        // GET: Funcionarios/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: UnidadeDeFederacaos/Create
+        // POST: Funcionarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create (UnidadeDeFederacao unidadeDeFederacao)
+        public async Task<IActionResult> Create([Bind("idfuncionario,Nome,nome_guerra,registro_contador,cpf,rg,expedicao,orgao,carteira_trabalho,serie_ct,emissao_ct,afastamento,causa_afastamento,saida,naturalidade,nascimento,cidade_nascimento,pis_pasep,banco_pis,titulo_eleitor,zona,secao,desconto_sindicato,tamanho_camisa,tamanho_calca,observacoes,foto,ativo,TipoEstadoCivil,TipoGerencial,TipoNacionalidade,TipoSexo,TipoFuncionario,Id")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
-                unidadeDeFederacao.Id = Guid.NewGuid();
-                _context.Add(unidadeDeFederacao);
+                funcionario.Id = Guid.NewGuid();
+                _context.Add(funcionario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(unidadeDeFederacao);
+            return View(funcionario);
         }
 
-        // GET: UnidadeDeFederacaos/Edit/5
+        // GET: Funcionarios/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace RH_DELIRIO.Controllers
                 return NotFound();
             }
 
-            var unidadeDeFederacao = await _context.UnidadeDeFederacao.FindAsync(id);
-            if (unidadeDeFederacao == null)
+            var funcionario = await _context.Funcionarios.FindAsync(id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
-            return View(unidadeDeFederacao);
+            return View(funcionario);
         }
 
-        // POST: UnidadeDeFederacaos/Edit/5
+        // POST: Funcionarios/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, UnidadeDeFederacao unidadeDeFederacao)
+        public async Task<IActionResult> Edit(Guid id, [Bind("idfuncionario,Nome,nome_guerra,registro_contador,cpf,rg,expedicao,orgao,carteira_trabalho,serie_ct,emissao_ct,afastamento,causa_afastamento,saida,naturalidade,nascimento,cidade_nascimento,pis_pasep,banco_pis,titulo_eleitor,zona,secao,desconto_sindicato,tamanho_camisa,tamanho_calca,observacoes,foto,ativo,TipoEstadoCivil,TipoGerencial,TipoNacionalidade,TipoSexo,TipoFuncionario,Id")] Funcionario funcionario)
         {
-            if (id != unidadeDeFederacao.Id)
+            if (id != funcionario.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace RH_DELIRIO.Controllers
             {
                 try
                 {
-                    _context.Update(unidadeDeFederacao);
+                    _context.Update(funcionario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UnidadeDeFederacaoExists(unidadeDeFederacao.Id))
+                    if (!FuncionarioExists(funcionario.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace RH_DELIRIO.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(unidadeDeFederacao);
+            return View(funcionario);
         }
 
-        // GET: UnidadeDeFederacaos/Delete/5
+        // GET: Funcionarios/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -125,30 +125,30 @@ namespace RH_DELIRIO.Controllers
                 return NotFound();
             }
 
-            var unidadeDeFederacao = await _context.UnidadeDeFederacao
+            var funcionario = await _context.Funcionarios
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (unidadeDeFederacao == null)
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return View(unidadeDeFederacao);
+            return View(funcionario);
         }
 
-        // POST: UnidadeDeFederacaos/Delete/5
+        // POST: Funcionarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var unidadeDeFederacao = await _context.UnidadeDeFederacao.FindAsync(id);
-            _context.UnidadeDeFederacao.Remove(unidadeDeFederacao);
+            var funcionario = await _context.Funcionarios.FindAsync(id);
+            _context.Funcionarios.Remove(funcionario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UnidadeDeFederacaoExists(Guid id)
+        private bool FuncionarioExists(Guid id)
         {
-            return _context.UnidadeDeFederacao.Any(e => e.Id == id);
+            return _context.Funcionarios.Any(e => e.Id == id);
         }
     }
 }

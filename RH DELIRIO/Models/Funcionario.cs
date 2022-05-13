@@ -9,22 +9,16 @@ namespace RH_DELIRIO.Models
     public class Funcionario : Entity
     {
 
-        public Guid LojasId { get; set; }
-
-        public Guid CargosId { get; set; }
-
         [Required(ErrorMessage = "O ID do funcionário é obrigatório")]
         [Display(Name = "ID do funcionário")]
         public int idfuncionario { get; set; }
-
-
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Required(ErrorMessage = "O nome do funcionário é obrigatório")]
         [Display(Name = "Nome do funcionário")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Nome { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Display(Name = "Nome de Guerra")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string nome_guerra { get; set; }
@@ -79,7 +73,7 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de saída")]
         public DateTime saida { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+       
         [Display(Name = "Naturalidade")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string naturalidade { get; set; }
@@ -88,7 +82,7 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de nascimento")]
         public DateTime nascimento { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Display(Name = "Cidade de nascimento")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string cidade_nascimento { get; set; }
@@ -97,7 +91,7 @@ namespace RH_DELIRIO.Models
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string pis_pasep { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+       
         [Display(Name = "Banco PIS")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string banco_pis { get; set; }
@@ -106,7 +100,7 @@ namespace RH_DELIRIO.Models
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string titulo_eleitor { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Display(Name = "Zona")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string zona { get; set; }
@@ -125,7 +119,7 @@ namespace RH_DELIRIO.Models
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string tamanho_calca { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Display(Name = "Observações")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string observacoes { get; set; }
@@ -148,8 +142,6 @@ namespace RH_DELIRIO.Models
 
         public TipoFuncionario TipoFuncionario { get; set; }
 
-        
-        
 
         //Relações do EF
         public IEnumerable <Bancos> Bancos { get; set; }
@@ -171,7 +163,6 @@ namespace RH_DELIRIO.Models
         public Divisao Divisao { get; set; }
 
         public EnderecoFuncionario EnderecoFuncionario { get; set; }
-
 
         public HorariosAtuais HorariosAtuais { get; set; }
 

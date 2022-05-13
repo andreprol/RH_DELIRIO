@@ -29,7 +29,7 @@ namespace RH_DELIRIO.Models
 
         //Relação do EF
 
-       
+        public Funcionario funcionario { get; set; }
 
 
     }

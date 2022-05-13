@@ -9,10 +9,6 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<p>
-    <input type ="search" id="inputbusca" /> 
-    <button type ="button" asp-action="Details" asp-route-id="@Model.Id">Busca</button>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -33,7 +29,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CargosId)
+                @Html.DisplayFor(modelItem => item.idfuncionario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)

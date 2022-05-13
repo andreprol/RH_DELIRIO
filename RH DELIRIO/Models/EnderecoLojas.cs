@@ -9,7 +9,6 @@ namespace RH_DELIRIO.Models
     public class EnderecoLojas : Entity
     {
 
-        public Guid UnidadeDeFederacaoId { get; set; }
         public Guid LojasId { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
@@ -53,7 +52,6 @@ namespace RH_DELIRIO.Models
 
         public Lojas lojas { get; set; }
 
-        public UnidadeDeFederacao UnidadeDeFederacao { get; set; }
     }
 }
     

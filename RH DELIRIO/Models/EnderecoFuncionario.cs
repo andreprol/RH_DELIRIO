@@ -8,8 +8,6 @@ namespace RH_DELIRIO.Models
 {
     public class EnderecoFuncionario : Entity
     {
-        public Guid UnidadeDeFederacaoId { get; set; }
-
         public Guid FuncionarioId { get; set; }
 
 
@@ -55,6 +53,5 @@ namespace RH_DELIRIO.Models
 
         public Funcionario funcionario { get; set; }
 
-        public UnidadeDeFederacao UnidadeDeFederacao { get; set; }
     }
 }
