@@ -169,51 +169,40 @@
             </div>
             <h4>Admissão</h4>
             <hr />
-            <partial name="_Admissao_Create" />
-
+                <partial name="_Admissao_Create"/>
             <h4>Banco</h4>
             <hr />
-            <partial name="_Banco_Create" />
-
+                <partial name="_Banco_Create"/>
             <h4>Cargo</h4>
             <hr />
-            <partial name="_Cargo_Create" />
-
+                <partial name="_Cargo_Create"/>
             <h4>Divisão</h4>
             <hr />
-            <partial name="_Divisao_Create" />
-
+                <partial name="_Divisao_Create"/>
             <h4>Endereço</h4>
             <hr />
-            <partial name="_EnderecoFuncionario_Create" />
-
+                <partial name="_EnderecoFuncionario_Create"/>
             <h4>Horários Atuais</h4>
             <hr />
-            <partial name="_HorariosAtuais_Create" />
-
+                <partial name="_HorariosAtuais_Create"/>
             <h4>Instrução</h4>
             <hr />
-            <partial name="_Instrucao_Create" />
-
+                <partial name="_Instrucao_Create"/>
             <h4>Loja de Alocação</h4>
             <hr />
-            <partial name="_Lojas_Create" />
-
+                <partial name="_Lojas_Create"/>
             <h4>Plano de Saúde</h4>
             <hr />
-            <partial name="_PlanoDeSaude_Create" />
-
+                <partial name="_PlanoDeSaude_Create"/>
             <h4>Salário</h4>
             <hr />
-            <partial name="_Salarios_Create" />
-
+                <partial name="_Salarios_Create"/>
             <h4>Tarifa de ônibus</h4>
             <hr />
-            <partial name="_TarifasDeOnibus_Create" />
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+                <partial name="_TarifasDeOnibus_Create"/>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>
@@ -221,4 +210,8 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts{ 
+@{ await Html.RenderPartialAsync(partialViewName: "_ValidationScriptsPartial");}
+}
 
