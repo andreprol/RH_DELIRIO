@@ -153,29 +153,29 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="TipoEstadoCivil" class="control-label"></label>
-                <select asp-for="TipoEstadoCivil" class="form-control"></select>
-                <span asp-validation-for="TipoEstadoCivil" class="text-danger"></span>
+                <label asp-for="TipoEstadoCivil" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoEstadoCivil" checked="@((int)Model.TipoEstadoCivil ==1)" /> Solteiro <br />
+                <input type="radio" value="2" asp-for="TipoEstadoCivil" checked="@((int)Model.TipoEstadoCivil ==2)" /> Casado
             </div>
             <div class="form-group">
-                <label asp-for="TipoGerencial" class="control-label"></label>
-                <select asp-for="TipoGerencial" class="form-control"></select>
-                <span asp-validation-for="TipoGerencial" class="text-danger"></span>
+                <label asp-for="TipoGerencial" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoGerencial" checked="@((int)Model.TipoEstadoCivil ==1)" /> Sim <br />
+                <input type="radio" value="2" asp-for="TipoGerencial" checked="@((int)Model.TipoEstadoCivil ==2)" /> Não
             </div>
             <div class="form-group">
-                <label asp-for="TipoNacionalidade" class="control-label"></label>
-                <select asp-for="TipoNacionalidade" class="form-control"></select>
-                <span asp-validation-for="TipoNacionalidade" class="text-danger"></span>
+                <label asp-for="TipoNacionalidade" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoNacionalidade" checked="@((int)Model.TipoEstadoCivil ==1)" /> Brasileiro <br />
+                <input type="radio" value="2" asp-for="TipoNacionalidade" checked="@((int)Model.TipoEstadoCivil ==2)" /> Estrangeiro
             </div>
             <div class="form-group">
-                <label asp-for="TipoSexo" class="control-label"></label>
-                <select asp-for="TipoSexo" class="form-control"></select>
-                <span asp-validation-for="TipoSexo" class="text-danger"></span>
+                <label asp-for="TipoSexo" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoSexo" checked="@((int)Model.TipoEstadoCivil ==1)" /> Masculino <br />
+                <input type="radio" value="2" asp-for="TipoSexo" checked="@((int)Model.TipoEstadoCivil ==2)" /> Feminino
             </div>
             <div class="form-group">
-                <label asp-for="TipoFuncionario" class="control-label"></label>
-                <select asp-for="TipoFuncionario" class="form-control"></select>
-                <span asp-validation-for="TipoFuncionario" class="text-danger"></span>
+                <label asp-for="TipoFuncionario" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoFuncionario" checked="@((int)Model.TipoEstadoCivil ==1)" /> Pessoa Física <br />
+                <input type="radio" value="2" asp-for="TipoFuncionario" checked="@((int)Model.TipoEstadoCivil ==2)" /> Pessoa Jurídica
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">

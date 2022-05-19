@@ -68,21 +68,6 @@
                 <span asp-validation-for="emissao_ct" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="afastamento" class="control-label"></label>
-                <input asp-for="afastamento" class="form-control" />
-                <span asp-validation-for="afastamento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="causa_afastamento" class="control-label"></label>
-                <input asp-for="causa_afastamento" class="form-control" />
-                <span asp-validation-for="causa_afastamento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="saida" class="control-label"></label>
-                <input asp-for="saida" class="form-control" />
-                <span asp-validation-for="saida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="naturalidade" class="control-label"></label>
                 <input asp-for="naturalidade" class="form-control" />
                 <span asp-validation-for="naturalidade" class="text-danger"></span>
@@ -153,30 +138,79 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="TipoEstadoCivil" class="control-label"></label>
-                <select asp-for="TipoEstadoCivil" class="form-control"></select>
-                <span asp-validation-for="TipoEstadoCivil" class="text-danger"></span>
+                <label asp-for="TipoEstadoCivil" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoEstadoCivil" checked /> Solteiro<br />
+                <input type="radio" value="2" asp-for="TipoEstadoCivil" /> Casado
+
             </div>
             <div class="form-group">
-                <label asp-for="TipoGerencial" class="control-label"></label>
-                <select asp-for="TipoGerencial" class="form-control"></select>
-                <span asp-validation-for="TipoGerencial" class="text-danger"></span>
+                <label asp-for="TipoGerencial" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoGerencial" checked /> Sim<br />
+                <input type="radio" value="2" asp-for="TipoGerencial" /> Não
+
             </div>
             <div class="form-group">
-                <label asp-for="TipoNacionalidade" class="control-label"></label>
-                <select asp-for="TipoNacionalidade" class="form-control"></select>
-                <span asp-validation-for="TipoNacionalidade" class="text-danger"></span>
+                <label asp-for="TipoNacionalidade" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoNacionalidade" checked /> Brasileiro<br />
+                <input type="radio" value="2" asp-for="TipoNacionalidade" /> Estrangeiro
+
             </div>
             <div class="form-group">
-                <label asp-for="TipoSexo" class="control-label"></label>
-                <select asp-for="TipoSexo" class="form-control"></select>
-                <span asp-validation-for="TipoSexo" class="text-danger"></span>
+                <label asp-for="TipoSexo" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoSexo" checked /> Masculino<br />
+                <input type="radio" value="2" asp-for="TipoSexo" /> Feminino
+
             </div>
             <div class="form-group">
-                <label asp-for="TipoFuncionario" class="control-label"></label>
-                <select asp-for="TipoFuncionario" class="form-control"></select>
-                <span asp-validation-for="TipoFuncionario" class="text-danger"></span>
+                <label asp-for="TipoFuncionario" class="control-label"></label><br />
+                <input type="radio" value="1" asp-for="TipoFuncionario" checked /> Pessoa Física<br />
+                <input type="radio" value="2" asp-for="TipoFuncionario" /> Pessoa Jurídica
+
             </div>
+            <h4>Admissão</h4>
+            <hr />
+            <partial name="_Admissao_Create" />
+
+            <h4>Banco</h4>
+            <hr />
+            <partial name="_Banco_Create" />
+
+            <h4>Cargo</h4>
+            <hr />
+            <partial name="_Cargo_Create" />
+
+            <h4>Divisão</h4>
+            <hr />
+            <partial name="_Divisao_Create" />
+
+            <h4>Endereço</h4>
+            <hr />
+            <partial name="_EnderecoFuncionario_Create" />
+
+            <h4>Horários Atuais</h4>
+            <hr />
+            <partial name="_HorariosAtuais_Create" />
+
+            <h4>Instrução</h4>
+            <hr />
+            <partial name="_Instrucao_Create" />
+
+            <h4>Loja de Alocação</h4>
+            <hr />
+            <partial name="_Lojas_Create" />
+
+            <h4>Plano de Saúde</h4>
+            <hr />
+            <partial name="_PlanoDeSaude_Create" />
+
+            <h4>Salário</h4>
+            <hr />
+            <partial name="_Salarios_Create" />
+
+            <h4>Tarifa de ônibus</h4>
+            <hr />
+            <partial name="_TarifasDeOnibus_Create" />
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

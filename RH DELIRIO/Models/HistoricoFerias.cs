@@ -11,19 +11,19 @@ namespace RH_DELIRIO.Models
         public Guid FuncionarioId { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
-        [Required(ErrorMessage = "A data de início é obrigatória")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Data de início")]
         public DateTime datainicio { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
-        [Required(ErrorMessage = "A data de fim é obrigatória")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Data de fim")]
         public DateTime datafim { get; set; }
 
         [Display(Name = "Data de gozo")]
         public DateTime datagozo { get; set; }
 
-        [Required(ErrorMessage = "O valor das férias é obrigatório")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Valor das férias")]
         public int valorferias { get; set; }
 

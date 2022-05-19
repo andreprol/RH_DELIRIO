@@ -16,7 +16,7 @@ namespace RH_DELIRIO.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.16")
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -253,24 +253,29 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("agencia_banco")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("conta_banco")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("descricao_banco")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("numero_banco")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FuncionarioId");
+                    b.HasIndex("FuncionarioId")
+                        .IsUnique();
 
                     b.ToTable("Bancos");
                 });
@@ -289,6 +294,7 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("descricao")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -316,6 +322,7 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("descricao")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -438,6 +445,7 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("descricao_evento")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -566,6 +574,7 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("orgao")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -698,7 +707,8 @@ namespace RH_DELIRIO.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FuncionarioId");
+                    b.HasIndex("FuncionarioId")
+                        .IsUnique();
 
                     b.ToTable("HistoricosSalarios");
                 });
@@ -813,7 +823,6 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("descricaoAnterior")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -823,7 +832,6 @@ namespace RH_DELIRIO.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("descricaoOriginal")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -902,14 +910,6 @@ namespace RH_DELIRIO.Data.Migrations
 
                     b.Property<Guid>("FuncionarioId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("cargo_atual")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("cargo_original")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("data_modificao")
                         .HasColumnType("datetime2");
@@ -1052,8 +1052,8 @@ namespace RH_DELIRIO.Data.Migrations
             modelBuilder.Entity("RH_DELIRIO.Models.Bancos", b =>
                 {
                     b.HasOne("RH_DELIRIO.Models.Funcionario", "funcionario")
-                        .WithMany("Bancos")
-                        .HasForeignKey("FuncionarioId")
+                        .WithOne("Banco")
+                        .HasForeignKey("RH_DELIRIO.Models.Bancos", "FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1107,7 +1107,7 @@ namespace RH_DELIRIO.Data.Migrations
             modelBuilder.Entity("RH_DELIRIO.Models.Eventos", b =>
                 {
                     b.HasOne("RH_DELIRIO.Models.Funcionario", "funcionario")
-                        .WithMany("Eventos")
+                        .WithMany("Evento")
                         .HasForeignKey("FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1151,8 +1151,8 @@ namespace RH_DELIRIO.Data.Migrations
             modelBuilder.Entity("RH_DELIRIO.Models.HistoricoSalario", b =>
                 {
                     b.HasOne("RH_DELIRIO.Models.Funcionario", "funcionario")
-                        .WithMany("HistoricoSalario")
-                        .HasForeignKey("FuncionarioId")
+                        .WithOne("HistoricoSalario")
+                        .HasForeignKey("RH_DELIRIO.Models.HistoricoSalario", "FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1262,7 +1262,7 @@ namespace RH_DELIRIO.Data.Migrations
                 {
                     b.Navigation("Admissao");
 
-                    b.Navigation("Bancos");
+                    b.Navigation("Banco");
 
                     b.Navigation("Cargos");
 
@@ -1270,7 +1270,7 @@ namespace RH_DELIRIO.Data.Migrations
 
                     b.Navigation("EnderecoFuncionario");
 
-                    b.Navigation("Eventos");
+                    b.Navigation("Evento");
 
                     b.Navigation("Familiares");
 

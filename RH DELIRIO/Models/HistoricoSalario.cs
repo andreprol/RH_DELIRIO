@@ -15,10 +15,11 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Data de modificação de Salário")]
         public DateTime data_mod_salario { get; set; }
 
-        [Required(ErrorMessage = "O salário inicial é obrigatório preencher")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Salário inicial")]
         public int salario_inicial { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Salário Atual")]
         public int salario_atual { get; set; }
 

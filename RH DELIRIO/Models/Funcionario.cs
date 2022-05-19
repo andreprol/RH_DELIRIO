@@ -9,11 +9,11 @@ namespace RH_DELIRIO.Models
     public class Funcionario : Entity
     {
 
-        [Required(ErrorMessage = "O ID do funcionário é obrigatório")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "ID do funcionário")]
         public int idfuncionario { get; set; }
-        
-        [Required(ErrorMessage = "O nome do funcionário é obrigatório")]
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Nome do funcionário")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Nome { get; set; }
@@ -29,22 +29,23 @@ namespace RH_DELIRIO.Models
         public string registro_contador { get; set; }
 
 
-        [Required(ErrorMessage = "O CPF é obrigatório")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "CPF")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string cpf { get; set; }
 
-        [Required(ErrorMessage = "O RG é obrigatório")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Registro Geral - RG")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string rg { get; set; }
 
         [DataType(DataType.DateTime, ErrorMessage = "Data em formato incorreto")]
-        [Required(ErrorMessage = "A data de admissão é obrigatória")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Data de expedição")]
         public DateTime expedicao { get; set; }
 
         [Display(Name = "Orgão")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string orgao { get; set; }
 
@@ -144,7 +145,9 @@ namespace RH_DELIRIO.Models
 
 
         //Relações do EF
-        public IEnumerable <Bancos> Bancos { get; set; }
+        
+
+        public Bancos Banco { get; set; }
 
         public IEnumerable<Familiares> Familiares { get; set; }
 
@@ -152,9 +155,9 @@ namespace RH_DELIRIO.Models
 
         public IEnumerable<HistoricoFuncionario> HistoricoFuncionario { get; set; }
 
-        public IEnumerable<HistoricoSalario> HistoricoSalario { get; set; }
+        public HistoricoSalario HistoricoSalario { get; set; }
 
-        public IEnumerable<Eventos> Eventos { get; set; }
+        public IEnumerable <Eventos> Evento { get; set; }
 
         public Admissao Admissao { get; set; }
 

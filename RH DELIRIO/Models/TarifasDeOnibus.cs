@@ -13,11 +13,11 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Tarifa original")]
         public int tarifa_original { get; set; }
 
-        [Required(ErrorMessage = "A tarifa atual é obrigatória")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Tarifa atual")]
         public int tarifa_atual { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        
         [Display(Name = "Tipo da tarifa")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string tipo { get; set; }

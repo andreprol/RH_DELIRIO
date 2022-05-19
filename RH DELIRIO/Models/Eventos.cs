@@ -13,11 +13,12 @@ namespace RH_DELIRIO.Models
         [Display(Name = "Nº Evento")]
         public int numero_evento { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\u00C0-\u00FF""'\w-]*$", ErrorMessage = "Formato inválido")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Descrição do Evento")]
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string descricao_evento { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Display(Name = "Data do evento")]
         public DateTime data_evento { get; set; }
 
