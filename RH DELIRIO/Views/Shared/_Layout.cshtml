@@ -6,41 +6,106 @@
     <title>@ViewData["Title"] - RH_DELIRIO</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .mynav_dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .mynav_dropdown .mynav_dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: black;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+                text-align:left;
+            }
+
+            .mynav_mynavbar a:hover, .mynav_dropdown:hover .mynav_dropbtn {
+                background-color: lightgreen;
+            }
+
+        .mynav_dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .mynav_dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .mynav_dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .mynav_dropdown:hover .mynav_dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RH_DELIRIO</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RH DELIRIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Eventos" asp-action="Index">Eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Familiares" asp-action="Index">Familiares</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HistoricoFerias" asp-action="Index">Histórico de Férias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HistoricoFuncionarios" asp-action="Index">Ocorrências dos Funcionários</a>
-                        </li>
-
-
-                    </ul>
-                    <partial name="_LoginPartial" />
+                <div align="left" class="mynav_navbar1">
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            Cadastro
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+                            <a asp-area="" asp-controller="Funcionarios" asp-action="Create">Adicionar Funcionário</a>
+                            <a asp-area="" asp-controller="Eventos" asp-action="Create">Adicionar Evento</a>
+                            <a asp-area="" asp-controller="Familiares" asp-action="Create">Adicionar Familiares</a>
+                            <a asp-area="" asp-controller="HistoricoFerias" asp-action="Create">Adicionar Historico de Férias</a>
+                            <a asp-area="" asp-controller="HistoricoFuncionarios" asp-action="Create">Adicionar Histórico de Funcionário</a>
+                        </div>
+                    </div>
                 </div>
+                <div align="left" class="mynav_navbar2">
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            Visualizar
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+                            <a asp-area="" asp-controller="Funcionarios" asp-action="Index">Visualizar Funcionários</a>
+                            <a asp-area="" asp-controller="Eventos" asp-action="Index">Visualizar Eventos</a>
+                            <a asp-area="" asp-controller="Familiares" asp-action="Index">Visualizar Familiares</a>
+                            <a asp-area="" asp-controller="HistoricoFerias" asp-action="Index">Visualizar Historico de Férias</a>
+                            <a asp-area="" asp-controller="HistoricoFuncionarios" asp-action="Index">Visualizar Histórico de Funcionários</a>
+                        </div>
+                    </div>
+                </div>
+                <partial name="_LoginPartial" />
             </div>
+
         </nav>
+        
     </header>
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
