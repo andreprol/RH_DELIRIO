@@ -1,0 +1,9 @@
+﻿.background {
+    background-image: url('file:///E:\RH DELIRIO\RH DELIRIO\wwwroot\src\img\background.jpg');
+}
+.backgroundimg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}

@@ -61,10 +61,14 @@
     </style>
 </head>
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RH DELIRIO</a>
+                <div class="menu-img online" onclick="window.location.href='https://localhost:44371/'">
+                    <img src="/src/img/logo.png" alt="" height="60" />
+                </div>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -99,6 +103,17 @@
                         </div>
                     </div>
                 </div>
+                <div align="left" class="mynav_navbar1">
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            Relatórios
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+
+                        </div>
+                    </div>
+                </div>
                 <partial name="_LoginPartial" />
             </div>
 
@@ -114,7 +129,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - RH_DELIRIO - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - RH-DELIRIO - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
